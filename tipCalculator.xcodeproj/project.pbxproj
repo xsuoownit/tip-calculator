@@ -13,6 +13,7 @@
 		026FFFE61BC1A79A00E7E62B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026FFFE41BC1A79A00E7E62B /* Main.storyboard */; };
 		026FFFE81BC1A79A00E7E62B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026FFFE71BC1A79A00E7E62B /* Assets.xcassets */; };
 		026FFFEB1BC1A79A00E7E62B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026FFFE91BC1A79A00E7E62B /* LaunchScreen.storyboard */; };
+		026FFFFA1BC1C1FC00E7E62B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 026FFFF91BC1C1FC00E7E62B /* SettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		026FFFE71BC1A79A00E7E62B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		026FFFEA1BC1A79A00E7E62B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		026FFFEC1BC1A79A00E7E62B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		026FFFF81BC1C1FC00E7E62B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		026FFFF91BC1C1FC00E7E62B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				026FFFE91BC1A79A00E7E62B /* LaunchScreen.storyboard */,
 				026FFFEC1BC1A79A00E7E62B /* Info.plist */,
 				026FFFDB1BC1A79A00E7E62B /* Supporting Files */,
+				026FFFF81BC1C1FC00E7E62B /* SettingsViewController.h */,
+				026FFFF91BC1C1FC00E7E62B /* SettingsViewController.m */,
 			);
 			path = tipCalculator;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				026FFFE31BC1A79A00E7E62B /* TipViewController.m in Sources */,
 				026FFFE01BC1A79A00E7E62B /* AppDelegate.m in Sources */,
 				026FFFDD1BC1A79A00E7E62B /* main.m in Sources */,
+				026FFFFA1BC1C1FC00E7E62B /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +306,7 @@
 				026FFFF11BC1A79A00E7E62B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -86,7 +86,13 @@
                             <outletCollection property="gestureRecognizers" destination="J6F-6w-5xv" appends="YES" id="Gmd-lF-swV"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="i2l-FB-m9h"/>
+                    <navigationItem key="navigationItem" id="i2l-FB-m9h">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="4Nl-Xu-XFu">
+                            <connections>
+                                <segue destination="RtE-96-d8A" kind="push" id="lHP-Kb-0wp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billTextField" destination="3ap-Ym-X97" id="EyY-Of-MO3"/>
                         <outlet property="tipAmountLabel" destination="ErP-rA-kCW" id="oL0-DP-e6P"/>
@@ -102,6 +108,22 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="781" y="324"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Q4r-OI-LBp">
+            <objects>
+                <viewController id="RtE-96-d8A" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oDq-JR-xN0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7T8-o7-859"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X5g-O3-q6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zY4-zT-7Z9">
