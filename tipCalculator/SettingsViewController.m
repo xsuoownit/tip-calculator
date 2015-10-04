@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
 
 @end
 
@@ -33,5 +34,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)onTap:(UISegmentedControl *)sender {
+    long defaultIndex = [self.tipControl selectedSegmentIndex];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:defaultIndex forKey:@"default_index"];
+    [defaults synchronize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    long tipIndex = [defaults integerForKey:@"default_index"];
+    [self.tipControl setSelectedSegmentIndex:tipIndex];
+}
 
 @end

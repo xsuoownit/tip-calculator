@@ -42,6 +42,9 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="onBillChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="S43-Vq-Cj0"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="mTk-0o-3Cq">
                                 <rect key="frame" x="20" y="169" width="280" height="29"/>
@@ -134,12 +137,18 @@
                                     <segment title="15%"/>
                                     <segment title="20%"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onTap:" destination="RtE-96-d8A" eventType="valueChanged" id="yzo-o5-lL9"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="7T8-o7-859"/>
+                    <connections>
+                        <outlet property="tipControl" destination="uw1-0h-tM0" id="nWN-uE-tJJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5g-O3-q6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

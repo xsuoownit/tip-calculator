@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Tip Calculator";
+    [self setTipControl];
     [self updateValues];
 }
 
@@ -31,7 +32,6 @@
 
 - (IBAction)onTap:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];
-    [self updateValues];
 }
 
 - (IBAction)onValueChanged:(UISegmentedControl *)sender {
@@ -47,7 +47,21 @@
     
     self.tipAmountLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
     self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", total];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self setTipControl];
+    [self updateValues];
+}
+
+- (void) setTipControl {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    long tipIndex = [defaults integerForKey:@"default_index"];
+    [self.tipControl setSelectedSegmentIndex:tipIndex];
+}
+
+- (IBAction)onBillChanged:(UITextField *)sender {
+    [self updateValues];
 }
 
 @end
