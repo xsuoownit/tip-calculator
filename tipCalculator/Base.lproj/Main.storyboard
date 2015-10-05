@@ -141,12 +141,26 @@
                                     <action selector="onTap:" destination="RtE-96-d8A" eventType="valueChanged" id="yzo-o5-lL9"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE DEFAULT REGION/LANGUAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JrH-7l-8Yf">
+                                <rect key="frame" x="14" y="169" width="286" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="ICC-vd-oat">
+                                <rect key="frame" x="0.0" y="191" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="7T8-o7-859"/>
                     <connections>
+                        <outlet property="localePicker" destination="ICC-vd-oat" id="KQa-LJ-jHm"/>
                         <outlet property="tipControl" destination="uw1-0h-tM0" id="nWN-uE-tJJ"/>
                     </connections>
                 </viewController>

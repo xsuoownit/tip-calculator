@@ -8,8 +8,11 @@
 
 #import "SettingsViewController.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () {
+    NSArray *regions;
+}
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
+@property (weak, nonatomic) IBOutlet UIPickerView *localePicker;
 
 @end
 
@@ -17,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    regions = @[@"English(U.S.)", @"English(U.K.)", @"English(C.A.)", @"Spanish", @"French", @"German", @"Chinese", @"Japanese", @"Italian"];
+    self.localePicker.dataSource = self;
+    self.localePicker.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +50,25 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     long tipIndex = [defaults integerForKey:@"default_index"];
     [self.tipControl setSelectedSegmentIndex:tipIndex];
+    long localeIndex = [defaults integerForKey:@"localeIndex"];
+    [self.localePicker selectRow:localeIndex inComponent:0 animated:YES];
+}
+
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return regions.count;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return regions[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:row forKey:@"localeIndex"];
 }
 
 @end

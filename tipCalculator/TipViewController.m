@@ -40,7 +40,12 @@
 
 - (void)updateValues {
     NSNumberFormatter *formatter = [NSNumberFormatter new];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSArray *locales = @[@"en_US", @"en_UK", @"en_CA", @"es_ES", @"fr_FR", @"de_DE", @"zh_CN", @"ja_JP", @"it_IT"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    long localeIndex = [defaults integerForKey:@"localeIndex"];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:locales[localeIndex]];
+    [formatter setLocale:locale];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setMaximumFractionDigits:2];
     
     float billAmount = [self.billTextField.text floatValue];
@@ -50,9 +55,9 @@
     float total = tipAmount + billAmount;
     
     NSString *formattedTipAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:tipAmount]];
-    self.tipAmountLabel.text = [@"$" stringByAppendingString:formattedTipAmount];
+    self.tipAmountLabel.text = formattedTipAmount;
     NSString *formattedTotalAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
-    self.totalLabel.text = [@"$" stringByAppendingString:formattedTotalAmount];
+    self.totalLabel.text = formattedTotalAmount;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
