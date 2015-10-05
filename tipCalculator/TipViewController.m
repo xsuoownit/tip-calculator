@@ -50,9 +50,9 @@
     float total = tipAmount + billAmount;
     
     NSString *formattedTipAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:tipAmount]];
-    self.tipAmountLabel.text = formattedTipAmount;
+    self.tipAmountLabel.text = [@"$" stringByAppendingString:formattedTipAmount];
     NSString *formattedTotalAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
-    self.totalLabel.text = formattedTotalAmount;
+    self.totalLabel.text = [@"$" stringByAppendingString:formattedTotalAmount];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
