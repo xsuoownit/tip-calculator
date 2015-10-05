@@ -39,19 +39,26 @@
 }
 
 - (void)updateValues {
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
+    
     float billAmount = [self.billTextField.text floatValue];
     
     NSArray *tipValues = @[@(0.10), @(0.15), @(0.20)];
     float tipAmount = [tipValues[self.tipControl.selectedSegmentIndex] floatValue] * billAmount;
     float total = tipAmount + billAmount;
     
-    self.tipAmountLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
-    self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", total];
+    NSString *formattedTipAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:tipAmount]];
+    self.tipAmountLabel.text = formattedTipAmount;
+    NSString *formattedTotalAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
+    self.totalLabel.text = formattedTotalAmount;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setTipControl];
     [self updateValues];
+    [self.billTextField becomeFirstResponder];
 }
 
 - (void) setTipControl {
