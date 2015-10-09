@@ -26,6 +26,14 @@
     [self setTipControl];
     [self updateValues];
     self.tipView.alpha = 0;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastUpdate = [defaults objectForKey:@"lastUpdatedTime"];
+    NSDate *now = [NSDate date];
+    NSTimeInterval seconds = [now timeIntervalSinceDate:lastUpdate];
+    if (seconds <= 10 * 60) {
+        self.billTextField.text = [defaults stringForKey:@"lastUpdatedBill"];
+        self.tipView.alpha = 1;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +91,15 @@
         // Do something here when the animation finishes.
     }];
     [self updateValues];
+    if (self.billTextField.text && self.billTextField.text.length > 0) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:self.billTextField.text forKey:@"lastUpdatedBill"];
+        NSDate *now = [NSDate date];
+        [defaults setObject:now forKey:@"lastUpdatedTime"];
+    } else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastUpdatedBill"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastUpdatedTime"];
+    }
 }
 
 @end
