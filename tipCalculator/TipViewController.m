@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
+@property (weak, nonatomic) IBOutlet UIView *billView;
+@property (weak, nonatomic) IBOutlet UIView *tipView;
 
 @end
 
@@ -23,6 +25,7 @@
     self.title = @"Tip Calculator";
     [self setTipControl];
     [self updateValues];
+    self.tipView.alpha = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +76,12 @@
 }
 
 - (IBAction)onBillChanged:(UITextField *)sender {
+    [UIView animateWithDuration:0.5 animations:^{
+        // This causes first view to fade in and second view to fade out
+        self.tipView.alpha = 1;
+    } completion:^(BOOL finished) {
+        // Do something here when the animation finishes.
+    }];
     [self updateValues];
 }
 
