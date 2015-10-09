@@ -25,6 +25,7 @@
     self.localePicker.delegate = self;
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,6 +53,7 @@
     [self.tipControl setSelectedSegmentIndex:tipIndex];
     long localeIndex = [defaults integerForKey:@"localeIndex"];
     [self.localePicker selectRow:localeIndex inComponent:0 animated:YES];
+    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

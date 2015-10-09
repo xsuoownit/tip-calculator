@@ -155,6 +155,7 @@
                                     <segment title="15%"/>
                                     <segment title="20%"/>
                                 </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onTap:" destination="RtE-96-d8A" eventType="valueChanged" id="yzo-o5-lL9"/>
                                 </connections>
